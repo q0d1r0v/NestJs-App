@@ -9,7 +9,7 @@ import { prisma } from '../../../prisma-client/prisma'
 export class PostsService {
     async createPost(body) {
         try {
-            const {title, key} = body
+            const { title, key } = body
             const post = await prisma.posts.create({
                 data: {
                     title,
@@ -19,7 +19,7 @@ export class PostsService {
             return {
                 post
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e)
         }
     }
@@ -30,13 +30,13 @@ export class PostsService {
             return {
                 posts
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e)
         }
     }
     async updatePost(query) {
         try {
-            const {post_id, title, key} = query
+            const { post_id, title, key } = query
 
             const post = await prisma.posts.update({
                 where: {
@@ -51,13 +51,13 @@ export class PostsService {
             return {
                 post
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e)
         }
     }
     async deletePost(query) {
         try {
-            const {post_id} = query
+            const { post_id } = query
 
             const del = await prisma.posts.delete({
                 where: {
@@ -69,7 +69,7 @@ export class PostsService {
                 del,
                 message: "Post deleted!"
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e)
         }
     }
